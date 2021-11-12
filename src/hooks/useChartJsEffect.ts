@@ -1,5 +1,4 @@
-import { Chart, registerables } from "chart.js";
-import { ChartConfiguration } from "chart.js";
+import { Chart, registerables, ChartConfiguration } from "chart.js";
 import { RefObject, useEffect } from "react";
 
 const useChartJsEffect = (
