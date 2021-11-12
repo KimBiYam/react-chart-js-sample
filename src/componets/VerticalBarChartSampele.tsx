@@ -1,27 +1,32 @@
 import { Chart, ChartConfiguration, registerables } from "chart.js";
 import { useEffect, useRef } from "react";
 
-export type BarChartSampleProps = {};
+export type VerticalBarChartSampeleProps = {};
 
-const BarChartSample = () => {
+const VerticalBarChartSampele = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext("2d");
-    Chart.register(...registerables);
 
     if (!ctx) {
       return;
     }
 
+    Chart.register(...registerables);
+
+    const months = Array.from({ length: 7 }).map(
+      (_, index) => `${index + 1}월`
+    );
+
     const config: ChartConfiguration = {
       type: "bar",
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: months,
         datasets: [
           {
-            label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3],
+            label: "test",
+            data: [35, 23, 53, 12, 35, 23, 65],
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",
               "rgba(54, 162, 235, 0.2)",
@@ -29,25 +34,10 @@ const BarChartSample = () => {
               "rgba(75, 192, 192, 0.2)",
               "rgba(153, 102, 255, 0.2)",
               "rgba(255, 159, 64, 0.2)",
+              "rgba(126, 75, 25, 0.2)",
             ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)",
-            ],
-            borderWidth: 1,
           },
         ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
       },
     };
 
@@ -65,4 +55,4 @@ const BarChartSample = () => {
   );
 };
 
-export default BarChartSample;
+export default VerticalBarChartSampele;
