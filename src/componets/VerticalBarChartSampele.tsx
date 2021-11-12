@@ -43,6 +43,12 @@ const VerticalBarChartSampele = () => {
         labels: months,
         datasets,
       },
+      options: {
+        interaction: {
+          intersect: false,
+          axis: "x",
+        },
+      },
     };
 
     const chart = new Chart(ctx, config);
