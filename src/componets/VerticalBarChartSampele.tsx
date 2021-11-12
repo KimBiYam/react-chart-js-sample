@@ -13,8 +13,6 @@ const VerticalBarChartSampele = () => {
       return;
     }
 
-    Chart.register(...registerables);
-
     const months = Array.from({ length: 7 }).map(
       (_, index) => `${index + 1}월`
     );
@@ -48,9 +46,20 @@ const VerticalBarChartSampele = () => {
           intersect: false,
           axis: "x",
         },
+        plugins: {
+          legend: {
+            labels: {
+              font: {
+                size: 16,
+                weight: "700",
+              },
+            },
+          },
+        },
       },
     };
 
+    Chart.register(...registerables);
     const chart = new Chart(ctx, config);
 
     return () => {
